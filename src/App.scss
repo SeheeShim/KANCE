@@ -1,39 +1,47 @@
 @import './styles/fonts';
 @import './styles/variables';
 
-html, body {
+/* html, body {
   margin: 0;
   padding: 0;
-  width: 100%;
-  overflow-x: hidden; // 가로 스크롤 방지
-}
+  min-width: 100%;
+  min-height: 100%;
+  
+} */
 
 * {
+  margin: 0;
+  padding: 0;
   font-family: 'Gugi', cursive;
   list-style: none;
   box-sizing: border-box;
 }
 
-Header {
-  position: static;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 9999;
-}
+/* #root {
+  width: 1020px; // 디자인 기준 너비
+  height: 720px; // 디자인 기준 높이
+  transform-origin: top left; // 스케일 기준점
+  transform: scale(calc(min(100vw / 1020, 100vh / 720))); // 화면 비율에 맞춰 자동 스케일
+} */
 
 .app {
-  width: 100%;
-  min-height: 100vh;
+  min-width: 100%;
+  min-height: 100%;
   background: #333;
   color: $primary-color;
   position: relative;
 }
-
+.header {
+  position: static;
+  top: 0;
+  left: 0;
+  width: 80%;
+  z-index: 99999 ;
+}
 main {
-  width: 100%;
-  min-height: 100vh;
+  min-width: 100%;
+  min-height: 100%;
   position: relative;
-  top: -4rem;
+  top: 0;
   left: 0;
 }

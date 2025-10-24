@@ -22,7 +22,7 @@ function App() {
   return (
     <div className="app">
       <Router>
-        <Header openModal={() => setIsModalOpen(true)} />
+        <Header className="header" openModal={() => setIsModalOpen(true)} />
 
         <main>
           <Routes>
