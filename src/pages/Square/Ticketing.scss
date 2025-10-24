@@ -1,0 +1,118 @@
+@import '/src/styles/fonts.scss'; 
+@import '/src/styles/variables';
+
+/* rem 기준(16px) — 상단 패딩 4.5rem */
+.ticketing-page {
+  display: grid;
+  grid-template-columns: 16rem 1fr; /* 좌: 고정, 우: 유동 */
+  gap: 2rem;
+  padding: 8.5rem 5rem 2rem;
+  max-width: 80rem;
+  margin: 0 auto;
+  color: #ececec;
+
+  @media (max-width: 64rem) { /* ≤1024px */
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 좌측 패널 */
+.filter .panel {
+  position: sticky;
+  top: 4.5rem;
+  background: #ff6a00;  /* 오렌지 박스 */
+  color: #1a1a1a;
+  padding: 1.25rem;
+  border-radius: 0.5rem;
+  border: 0.0625rem solid rgba(0,0,0,.2);
+}
+
+.panel-title {
+  font-size: 1.25rem;
+  font-weight: 0;
+  margin-bottom: 0.75rem;
+}
+
+.filter .check {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+  font-weight: 700;
+  input {
+    width: 1rem;
+    height: 1rem;
+    accent-color: #1a1a1a; /* 체크 색 */
+  }
+}
+
+.filter hr {
+  border: none;
+  border-top: 0.0625rem solid rgba(0,0,0,.35);
+  margin: 1rem 0;
+}
+
+/* 가운데 카드 그리드 */
+.grid-area {
+  min-height: 50vh;
+}
+
+.cards {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(3, 1fr);
+
+  @media (max-width: 64rem) { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 40rem) { grid-template-columns: 1fr; }
+}
+
+.card {
+  border: 0.55rem solid #ff6a00; /* 시안처럼 오렌지 프레임 */
+  background: #ffff;
+  border-radius: 0.25rem;
+  overflow: hidden;
+}
+
+.thumb {
+  background: #d9d9d9;
+  aspect-ratio: 3 / 4;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+.meta {
+  background: #fff;
+  color: #111;
+  border-top: 0.0625rem solid #bbb;
+  padding: 1rem; /* padding 추가 */
+  
+  display: flex;
+  flex-direction: column; /* 세로로 정렬 */
+  justify-content: flex-start; /* 내용이 위에서 아래로 정렬되도록 설정 */
+  height: auto; /* height를 auto로 설정하여 텍스트가 모두 표시되도록 함 */
+
+  /* 각 텍스트를 적절히 배치 */
+  .title { 
+    font-weight: 200;
+    margin-bottom: 0.25rem;
+    font-size: 1.1rem; 
+    margin-top: 0.2rem;
+    color: #000;
+  }
+
+  .period, .place { 
+    font-size: 0.875rem; 
+    opacity: .85; 
+    margin-top: 0.2rem;
+    margin-bottom: 0.1rem; /* 각 텍스트 간 간격 추가 */
+  }
+}
+
+/* 무한 스크롤 트리거 영역 */
+.loader {
+  height: 4rem;
+}

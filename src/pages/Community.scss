@@ -1,0 +1,319 @@
+@import '../styles/fonts';
+@import '../styles/variables';
+
+.community-container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+
+  .sidebar {
+    width: 25vw; // 수정된 너비
+    max-width: 100%;
+    height: 100vh;
+    padding: 5rem 1rem 0.3rem 1rem;
+    background: $primary-color;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    justify-content: space-between;
+
+    .title{
+      text-align: center;
+      h2 {
+        margin-bottom: 0.5rem;
+        color: #fff;
+        font-size: 2.3rem;
+      }
+
+      p {
+        color: #333;
+        font-size: 1rem;
+        font-weight: 400;
+        
+      }
+    }
+
+    .country-filter {
+      margin-top: 1rem;
+      color: #fff;
+      width: 100%;
+      height: 2rem;
+      display: flex;
+      gap: 0.5rem;
+      cursor: pointer;
+      position: relative;
+
+      .custom-select {
+        width: 15%;
+        justify-content: right;
+
+        .selected-option {
+          padding: 0.1rem 0.4rem;
+          background: rgba(#fff, 0.3);
+          border-radius: 4px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          font-size: 0.8rem;
+          width: 6rem;
+          cursor: pointer;
+
+          img.flag {
+            width: 20px;
+            height: 14px;
+            margin-right: 0.4rem;
+          }
+
+          .dropdown-arrow {
+            font-size: 0.75rem;
+            color: #fff;
+            margin-left: auto;
+          }
+
+          &:hover {
+            background: rgba(#fff, 1);
+            transition: all 0.2s ease;
+            color: $primary-color;
+
+            .dropdown-arrow {
+              color: $primary-color;
+            }
+          }
+        }
+
+        .options-list {
+          position: absolute;
+          width: 21%;
+          max-height: 17rem;
+          overflow-y: auto;
+          background: rgba($primary-color, 0.8);
+          border: 0.1rem solid #fff;
+          border-radius: 4px;
+          margin-top: 0rem;
+          z-index: 10;
+          font-size: .7rem;
+          .option-item {
+            padding: 0.4rem 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+
+            &:hover {
+              background: #eee;
+            }
+
+            img.flag {
+              width: 20px;
+              height: 14px;
+            }
+          }
+        }
+      }
+
+      .pagination {
+        display: flex;
+        justify-content: right;
+        gap: 1rem;
+        width: 8rem;
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        button {
+          background: none;
+          border: none;
+          font-size: 1.5rem;
+          color: #fff;
+          cursor: pointer;
+
+          &:hover {
+            color: #333;
+          }
+        }
+      }
+    }
+
+    .rank-list {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      height: 80vh;
+      justify-content: space-between;
+    }
+
+    .rank-card {
+      display: flex;
+      align-items: center;
+      background: #333;
+      padding: 0.7rem 1rem 0.4rem 0rem;
+      border-radius: 8px;
+      width: 100%;
+      height: 7.7%;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background: #eee;
+      }
+
+      .left {
+        font-weight: bold;
+        width: 2.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-right: 0.1rem solid $primary-color;
+        text-align: center;
+      }
+
+      .center {
+        margin-left: 1.6rem;
+        position: relative;
+        display: flex;
+        flex: 1;
+        align-items: center;
+        gap: 1rem;
+        .avatar {
+          img {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+          }
+        }
+
+        .flag {
+          position: absolute;
+          top: -0.2rem;
+          left: -0.8rem;
+          width: 1.5rem;
+          height: 1.5rem;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+
+        .info {
+          justify-content: space-between;
+
+          .top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 15rem;
+
+            .username {
+
+            }
+
+            .topRight {
+              font-size: 0.8rem;
+              border-left: 0.1rem solid $primary-color;
+              width: 7rem;
+              padding-left: 0.9rem;
+              display: flex;
+              gap: 0.7rem;
+              justify-content: left;
+              .likes {
+                justify-content: left;
+              }
+
+              .views {
+                justify-content: left;
+              }
+            }
+          }
+        }
+      }
+
+      .right {
+        width: 2.8rem;
+        text-align: right;
+        border-left: 0.1rem solid $primary-color;
+      }
+    }
+
+    .selected-details {
+      position: relative;
+      width: 100%;
+      height: 90%;
+      background-color: #333;
+      border-radius: 1rem;
+      color: #fff;
+      /* .line {
+        width: 100%;
+        border-top: 0.1rem solid #333;
+         position: absolute;
+         top: -4rem;
+      } */
+      h2{
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+      .Details {
+        position: absolute;
+        top: 0rem;
+        right: 0;
+        display: flex;
+        gap: 0.7rem;
+        border: 0.1rem solid #333;
+        padding: 0.5rem;
+        background-color: rgba(#fff, 0.05);
+        border-radius: 1rem;
+      }
+
+      video {
+        width: 90%;
+        height: 75vh;
+        object-fit: cover;
+        overflow: hidden;
+        margin-top: 1rem;
+        justify-content: center;
+      }
+
+      .back-button {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: none;
+        border: none;
+        color: $primary-color;
+        cursor: pointer;
+        font-size: 2rem;
+      }
+
+      .inline-flag {
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-left: 0.5rem;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  .Right {
+    flex: 1;
+
+    .map-wrapper {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .community-container {
+    flex-direction: column;
+
+    .sidebar {
+      width: 100%;
+      height: 60vh;
+    }
+
+    .Right {
+      height: 40vh;
+    }
+  }
+}

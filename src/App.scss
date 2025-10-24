@@ -1,0 +1,39 @@
+@import './styles/fonts';
+@import './styles/variables';
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden; // 가로 스크롤 방지
+}
+
+* {
+  font-family: 'Gugi', cursive;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+Header {
+  position: static;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+}
+
+.app {
+  width: 100%;
+  min-height: 100vh;
+  background: #333;
+  color: $primary-color;
+  position: relative;
+}
+
+main {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  top: -4rem;
+  left: 0;
+}

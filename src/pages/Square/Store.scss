@@ -1,0 +1,137 @@
+@import '/src/styles/fonts.scss'; 
+@import '/src/styles/variables';
+
+/* ===================== 레이아웃 ===================== */
+/* 좌측(히어로) 40% / 우측(컨텐츠) 60% 비중으로 배치 */
+.sg-page {
+
+  /* width: 100%;
+  height: 50vh;
+  background: #ff6a00;   */
+
+  display: grid;
+  grid-template-columns: 40% 60%; /* 좌측 40%, 우측 60% */
+  gap: 1rem;  /* 카드 간 간격을 조금 줄여서 밀착 */
+  padding: 8.5rem 2rem;
+  max-width: 84rem;
+  margin: 0 auto;
+
+  @media (max-width: 64rem) {
+    grid-template-columns: 1fr; /* 모바일에서는 스택 */
+  }
+}
+
+/* ===================== 좌측 히어로(스크롤 고정) ===================== */
+.sg-hero {
+  position: sticky;
+  top: 5rem;
+  align-self: start;
+}
+.sg-hero .hero-frame {
+  border: 0;
+  border-radius: 0;
+  overflow: hidden;
+  background: transparent;
+  aspect-ratio: 4 / 5; /* 큰 비율 유지 */
+}
+.sg-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ===================== 우측 컨텐츠(전체 축소 + 정렬) ===================== */
+.sg-main {
+  display: flex;
+  flex-direction: column;
+  --card-content-width: 60%;  /* 카드 폭 축소 */
+  padding-left: 2rem; /* 왼쪽 여백 추가 */
+}
+
+/* 드롭다운 */
+.cat.dd { position: relative; width: 14rem; margin: 0 0 1rem 0; }
+.dd-toggle {
+  width: 100%;
+  display: flex; align-items: center; justify-content: space-between;
+  background: #ff6a00; color: #111; font-weight: 800;
+  border: 0.0625rem solid #b54b00; border-radius: 0.25rem;
+  padding: 0.5rem 0.75rem; cursor: pointer;
+}
+.dd-menu {
+  position: absolute; top: calc(100% + .375rem); left: 0; width: 100%;
+  background: #d9d9d9; border: 0.0625rem solid #c5c5c5; border-radius: 0.25rem;
+  box-shadow: 0 .375rem 1.125rem rgba(0,0,0,.25); overflow: hidden; z-index: 10;
+}
+.dd-item { width: 100%; text-align: left; padding: .5rem .75rem; border: 0; background: transparent; cursor: pointer; }
+.dd-item:hover { text-decoration: underline; background: rgba(0,0,0,.04); }
+.dd-item.active { font-weight: 800; }
+
+/* 블록 타이틀/구분선 */
+.block { margin-top: 0.5rem; }
+.block .title { font-size: 1.5rem; font-weight: 900; color: #eee; margin: 0 0 .75rem; }
+.divider { border: none; border-top: 0.0625rem solid #8a8a8a; margin: 1rem 0 1.25rem; }
+
+/* ===================== 그리드 ===================== */
+.grid {
+  display: grid;
+  gap: 0.25rem; /* 카드 간 간격을 0.25rem으로 더 줄였습니다 */
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.grid .card {
+  margin-bottom: 0.05rem;  /* 카드 간 간격을 줄여서 밀착 */
+}
+
+.grid.two   { grid-template-columns: repeat(2, 1fr); }
+.grid.three { grid-template-columns: repeat(3, 1fr); }
+
+@media (max-width: 48rem) {
+  .grid.two   { grid-template-columns: 1fr; }
+  .grid.three { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ===================== 카드 ===================== */
+/* 카드 크기 축소 및 이미지, 텍스트가 '같은 폭'을 사용하도록 카드 자체에 공통 폭 적용 */
+.card {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  overflow: visible;
+  margin: 0;
+  width: var(--card-content-width);  /* 카드 폭 축소 */
+}
+
+/* 썸네일: 1:1, 카드 폭과 동일하게 */
+.card .thumb {
+  width: 100%;               /* ⬅ 이미지 폭 = 카드 폭 */
+  aspect-ratio: 1 / 1;
+  margin: 0 auto;
+  background: transparent;
+  overflow: hidden;
+}
+.card .thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;        /* ✅ 이미지가 잘리지 않도록 contain 사용 */
+  display: block;
+  border-radius: .25rem;
+  margin: 0;
+}
+
+/* 텍스트(메타): 배경/테두리 제거 + 이미지와 동일 폭 */
+.card .meta {
+  width: 100%;               /* ⬅ 텍스트 폭 = 카드 폭 (이미지와 동일) */
+  background: transparent !important;
+  border: 0 !important;
+  padding: .25rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: .8rem;
+  line-height: 1.2;
+}
+.card .meta .name  { color: #2e2c2c; font-weight: 700; }
+.card .meta .price { color: #2e2c2c;    font-weight: 800; }

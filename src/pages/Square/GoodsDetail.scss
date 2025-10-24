@@ -1,0 +1,70 @@
+@import '/src/styles/fonts.scss'; 
+@import '/src/styles/variables';
+
+.goods-detail {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 2rem;
+  padding: 4.5rem 2rem 2rem;
+  max-width: 80rem;
+  margin: 0 auto;
+  color: #e6e6e6;
+
+  @media (max-width: 64rem) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.left .poster {
+  background: #ff6a00;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.25rem;
+  overflow: hidden;
+
+  img {
+    width: 80%;
+    height: auto;
+    display: block;
+  }
+}
+
+.right .title {
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.right .desc {
+  margin-top: 0.75rem;
+}
+
+.row {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.price {
+  font-weight: 800;
+}
+
+hr {
+  border: none;
+  border-top: 0.0625rem solid #aaa;
+  margin: 1.5rem 0;
+}
+
+.cta {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn {
+  background: #ff6a00;
+  color: #1a1a1a;
+  padding: 0.5rem 1rem;
+  border: none;
+  font-weight: 800;
+  cursor: pointer;
+}
